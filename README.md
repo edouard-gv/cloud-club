@@ -5,9 +5,9 @@ A step by step tuto to progressively create lambdas on AWS.
 The goal is to have a CI/CD full functioning with infra as code as soon as possible. Linking to other services 
 will be done in a second time.
 
-The step are thus proposed in the following order
+The steps are thus proposed in the following order
 
- ## AWS
+ ## AWS Lambda
  ### 1-Console
  Just create your first lambda through AWS console. Maybe the most
  complexe thing is to create your AWS account :).
@@ -61,4 +61,4 @@ Same inspiration than 4, getting a small step further
 
 ### 8-understanding-security
 
- 
+## AWS EC2 and Ansible
