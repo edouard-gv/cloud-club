@@ -28,7 +28,10 @@ By the way, you will create the API Gateway to access the function through a Res
 Tutorial: https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-getting-started-hello-world.html#serverless-deploy
 
 Some notes:
-- on windows, using *git bash* as terminal, to launch sam cli, type 'sam.cmd', and not ~~sam~~.
+- on windows, if using *git bash* as terminal, to launch sam cli, type 'sam.cmd', and not ~~sam~~ .
+- on windows, if python installed with anaconda and not added to classpath, you can launch sam from anaconda prompt
+- had to regenerate access keys and token, and reconfigure aws CLI with this new pair, for it didn't handle cloudformation requests (sam deploy) 
+- no need to provide --region parameter if given during aws cli configuration (note : Paris = _eu-west-3_ ).
 
 # Original documentation from AWS
 
