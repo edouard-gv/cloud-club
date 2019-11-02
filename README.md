@@ -1,11 +1,12 @@
 # Cloud Club
 
-A step by step tuto to progressively create lambdas on AWS.
+A step by step tuto to progressively learn devops on clouds.
 
 The goal is to have a CI/CD full functioning with infra as code as soon as possible. Linking to other services 
 will be done in a second time.
 
-The steps are thus proposed in the following order
+The steps are thus proposed in different order depending on the cloud provider and type of service deployed. Just make steps as small as possible to 
+know how to deploy code + infra as soon as possible.
 
  ## AWS Lambda
  ### 1-Console
@@ -36,7 +37,7 @@ Tutorial: https://dev.to/codevbus/deploy-aws-lambda-functions-with-aws-sam-cli-a
 (Verify that SAM still need Python 2?)
 
 ### 4-Use-CloudForm
-Instead of manually creating the environments in 2, declare it in a Cloudform Template.
+Instead of manually creating the environments in 3, declare it in a Cloudform Template like in 2, but deployoing the infra in the pipeline.
 
 Inspiration from: https://github.com/aws-samples/lambda-refarch-webapp pointed by https://aws.amazon.com/lambda/ 
 (taking from it the smallest step, that is only a simple 
