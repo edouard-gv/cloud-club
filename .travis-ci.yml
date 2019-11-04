@@ -1,0 +1,25 @@
+language: python
+python:
+- '2.7'
+branches:
+  only: AWS-lambda-3-travis
+install:
+- pip install awscli
+- pip install aws-sam-cli
+script:
+- sam validate
+- sam package --template-file template.yaml --s3-bucket cloud-club-code --output-template-file packaged.yaml
+deploy:
+  provider: script
+  script: sam deploy --template-file packaged.yaml --stack-name travis-serverless-test
+  skip_cleanup: true
+  on:
+    branch: AWS-lambda-3-travis
+notifications:
+  email:
+    on_failure: always
+env:
+  global:
+  - AWS_DEFAULT_REGION: eu-west-3
+  - access_key_id: $AWS_ACCESS_KEY_ID
+  - secret_access_key: $AWS_SECRET_ACCESS_KEY
