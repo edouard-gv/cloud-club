@@ -33,7 +33,6 @@ Some notes:
 - had to regenerate access keys and token, and reconfigure aws CLI with this new pair, for it didn't handle cloudformation requests (sam deploy) 
 - no need to provide --region parameter if given during aws cli configuration (note : Paris = _eu-west-3_ ).
 
-
 ### 3-Travis-Github-pipeline
 Deploy your code from a github repository using a Raw Travis CI pipeline.
 
@@ -43,4 +42,22 @@ Tutorial: https://dev.to/codevbus/deploy-aws-lambda-functions-with-aws-sam-cli-a
 (Verify that SAM still need Python 2?)
 
 What can has been changed:
-- access to AWS key id and secret key through (secret) configuration variable provided by travis. 
+- BIG TYPO: travis configuration file is .travis.yml and not ~~.travis-ci.yml~~ 
+- access to AWS key id and secret key through (secret) configuration variable provided by travis.
+- Some people had to trigger manually a build on the branch in travis console. If it is your case, plese inform us.
+- need to migrate to python 3
+- need to add CAPABILITY_IAM in sam deploy command line (cf 2)
+- needed to allow some policies for all resources: it seems we are not using the manually created lambda role anymore. Idem for apigateway. Thus added this to the json
+		,
+        {
+            "Sid": "AllowSomeOtherPolicies",
+            "Effect": "Allow",
+            "Action": 
+                "iam:CreateRole",
+                "iam:AttachRolePolicy",
+				"iam:getRole",
+				"iam:passRole",
+				"apigateway:*"
+            ],
+            "Resource": "*"
+        }
