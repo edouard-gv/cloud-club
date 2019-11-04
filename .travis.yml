@@ -1,6 +1,6 @@
 language: python
 python:
-- '2.7'
+- '3.7'
 branches:
   only: AWS-lambda-3-travis
 install:
