@@ -11,7 +11,7 @@ script:
 - sam package --template-file template.yaml --s3-bucket cloud-club-code --output-template-file packaged.yaml
 deploy:
   provider: script
-  script: sam deploy --template-file packaged.yaml --stack-name travis-serverless-test
+  script: sam deploy --template-file packaged.yaml --capabilities CAPABILITY_IAM --stack-name travis-serverless-test
   skip_cleanup: true
   on:
     branch: AWS-lambda-3-travis
